@@ -140,6 +140,6 @@ answer = standard / divide_by
 
 
 print(f"\nThere is {answer} {to_unit} in {amount} {from_unit} ")
-
-keep_going = input("\nPress 'ENTER' to keep going or type 'xxx' then press enter to quit! ")
-print("Thank you for using this program :)")
+while True:
+    keep_going = input("\nPress 'ENTER' to keep going or type 'xxx' then press enter to quit! ")
+    print("Thank you for using this program :)")
