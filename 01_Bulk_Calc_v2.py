@@ -1,6 +1,5 @@
 # Generates headings (eg: ----- Heading -----)
 # Generates headings (eg: ----- Heading -----)
-
 def statement_generator(statement, decoration):
     print(f"\n{decoration * 5} {statement} {decoration * 5}")
 
@@ -12,7 +11,7 @@ def instructions():
     print('''
 -Follow the instructions given later on in the program.
 -Please answer in lower case.
--type "xxx" when you wish to exit the program.
+-type "exit()" when you wish to exit the program.
     ''')
 
 
@@ -21,9 +20,6 @@ def get_domain():
     while True:
 
         response = input("\nPlease choose a Domain: ")
-
-        if response == "xxx":
-            break
 
         if response in ['mass', 'm']:
             return "mass"
@@ -44,8 +40,6 @@ def get_unit(valid_list):
 
         response = input("Please enter a unit: ").lower()
 
-        if response == "xxx":
-            break
         if response in valid_list:
             return response
         else:
@@ -59,8 +53,6 @@ def int_check(question, low):
         try:
             # ask the user for a number
             response = int(input(question))
-            if response == "xxx":
-                break
             # check that the number is more than zero
             if response >= low:
                 return response
@@ -84,9 +76,10 @@ if want_instructions == "":
 
 
 print("program continues")
-while True:
-    domain = get_domain()
 
+keep_going = ""
+while keep_going == "":
+    domain = get_domain()
     print("Domain:", domain)
 
     if domain == "mass":
@@ -138,6 +131,4 @@ while True:
     answer = standard / divide_by
 
     print(f"\nThere is {answer} {to_unit} in {amount} {from_unit} ")
-    keep_going = input("Press ENTER to keep going or type no then press enter to quit")
-    print()
-    print("Thank you for using this program :)")
+    keep_going = input("Press 'ENTER' to keep going or type 'xxx' then press enter to quit")
